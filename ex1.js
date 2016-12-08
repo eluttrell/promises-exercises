@@ -1,12 +1,10 @@
-var fs = require('fs');
+var fsp = require('fs-promise');
 
 var filename = process.argv[2];
-fs.readFile(filename, function(err, buffer) {
-  if (err) {
-    console.log('Something went wrong.');
-    console.log('Because: ', err.message);
-    return;
-  }
-  var content = buffer.toString();
-  console.log(content.toUpperCase());
-});
+fsp.readFile(filename)
+  .then(function(buffer) {
+    console.log('Contents of file: ', String(buffer).toUpperCase());
+  })
+  .catch(function(err) {
+    console.log('Now you done fucked up:\n', err.message);
+  });

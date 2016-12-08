@@ -4,7 +4,8 @@
   "description": "promises exercises",
   "main": "none",
   "dependencies": {
-    "fs-promise": "^1.0.0"
+    "fs-promise": "^1.0.0",
+    "lodash": "^4.17.2"
   },
   "devDependencies": {},
   "scripts": {
